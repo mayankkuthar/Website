@@ -241,4 +241,3 @@ let items2 = document.querySelectorAll('.carousel-item2')
         next = next.nextElementSibling
     }
 })
-
