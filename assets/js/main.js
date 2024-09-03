@@ -78,8 +78,8 @@
 
   function toggleScrollTop() {
     if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-      window.scrollY > 100 ? wscrollTop.classList.add('active') : wscrollTop.classList.remove('active');
+      window.scrollY > 10 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+      window.scrollY > 10 ? wscrollTop.classList.add('active') : wscrollTop.classList.remove('active');
     }
   }
   scrollTop.addEventListener('click', (e) => {
@@ -212,12 +212,11 @@
 
 })();
 
-let items = document.querySelectorAll('.carousel .carousel-item')
+let items = document.querySelectorAll('.carousel-item1')
 
 		items.forEach((el) => {
-			const minPerSlide = 4
 			let next = el.nextElementSibling
-			for (var i=1; i<minPerSlide; i++) {
+			for (var i=1; i<4; i++) {
 				if (!next) {
             // wrap carousel by using first child
             next = items[0]
@@ -227,3 +226,19 @@ let items = document.querySelectorAll('.carousel .carousel-item')
         next = next.nextElementSibling
     }
 })
+
+let items2 = document.querySelectorAll('.carousel-item2')
+
+		items2.forEach((el) => {
+			let next = el.nextElementSibling
+			for (var i=1; i<2; i++) {
+				if (!next) {
+            // wrap carousel by using first child
+            next = items2[0]
+        }
+        let cloneChild = next.cloneNode(true)
+        el.appendChild(cloneChild.children[0])
+        next = next.nextElementSibling
+    }
+})
+

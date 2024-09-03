@@ -809,6 +809,34 @@ section,
   margin: 4px 10px;
 }
 
+.section-titles p {
+  font-size: 34px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  position: relative;
+}
+
+.section-titles h3 {
+  font-size: 16px;
+  padding: 0;
+  margin: 20px 0px 20px 0px;
+  letter-spacing: 1.5px;
+}
+
+.section-titles p::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: var(--accent-color);
+  margin: 4px 10px;
+}
+
 .section-title p {
   color: var(--heading-color);
   margin: 0;
@@ -961,8 +989,12 @@ section,
   border-radius: 10px;
 }
 
+.jip img{
+  border-radius: 0px !important;
+}
+
 .clients .swiper-slide img:hover {
-   border-radius: 20px;
+  border-radius: 20px;
 }
 
 .clients .swiper-wrapper {
@@ -1846,9 +1878,43 @@ button:active {
 
 }
 
-.service-icon img {
+.service-icon img,
+.service-icon-set img {
   position: relative !important;
   height: 10rem !important;
+}
+
+.silverbg {
+  background: linear-gradient(135deg, #C0C0C0 0%, #DCDCDC 50%, #A9A9A9 100%);
+}
+
+.service-icon-set {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 15px;
+  overflow: hidden;
+
+}
+
+.golden-icon {
+  filter: grayscale(100%) brightness(150%) contrast(250%);
+  mix-blend-mode: multiply;
+}
+
+.service-icon-set::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+
+    radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+  opacity: 0.7;
+  pointer-events: none;
+  /* Allow clicking through the overlay */
 }
 
 /*--------------------------------------------------------------
@@ -1935,10 +2001,11 @@ button:active {
 }
 
 @media (max-width: 767px) {
-  .carousel-inner .carousel-item > div {
+  .carousel-inner .carousel-item>div {
     display: none;
   }
-  .carousel-inner .carousel-item > div:first-child {
+
+  .carousel-inner .carousel-item>div:first-child {
     display: block;
   }
 }
@@ -1957,13 +2024,19 @@ button:active {
     transform: translateX(25%);
   }
 
-  .carousel-inner .carousel-item-start.active, 
+  .carousel-inner .carousel-item-start.active,
   .carousel-inner .carousel-item-prev {
     transform: translateX(-25%);
   }
 }
 
 .carousel-inner .carousel-item-end,
-.carousel-inner .carousel-item-start { 
+.carousel-inner .carousel-item-start {
   transform: translateX(0);
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  background-color: #8A6E2F;
+  border-radius: 7px;
 }
